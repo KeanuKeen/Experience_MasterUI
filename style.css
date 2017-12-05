@@ -1,20 +1,15 @@
+/* TODO: Restructure CSS +workflow */
+
 body{
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
-	font-family: 'Raleway', sans-serif; /* TODO:0 Use a fallback font */
+	font-family: 'Raleway', sans-serif;
 }
 
 *{
-	box-sizing: border-box; /* BUGS:0 Remove this */
+	box-sizing: border-box;
 }
-
-
-    /*
-		
-
-		*/
-
 
 .nostyle{
 	text-decoration: none;
