@@ -1,3 +1,2 @@
-/.imdone
 .gitattributes
-**/*.css
+*.css
