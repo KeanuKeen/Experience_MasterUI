@@ -22,20 +22,30 @@
       "TODO",
       "BUGS",
       "BUGS",
-      "REFINE"
+      "REFINE",
+      "DONE",
+      "DOING"
     ]
   },
   "lists": [
-    {
-      "name": "TODO",
-      "hidden": false
-    },
     {
       "name": "BUGS",
       "hidden": false
     },
     {
+      "name": "TODO",
+      "hidden": false
+    },
+    {
+      "name": "DOING",
+      "hidden": false
+    },
+    {
       "name": "REFINE",
+      "hidden": false
+    },
+    {
+      "name": "DONE",
       "hidden": false
     }
   ],
