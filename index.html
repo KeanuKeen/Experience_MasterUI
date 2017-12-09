@@ -1,4 +1,5 @@
 <!-- DONE:0 Create page sections structures +structure +frontend -->
+<!-- IDEA:0 Isolate center as a class or integrate to all Components? -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -7,51 +8,156 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/css/reset.min.css">
-	<link rel="stylesheet" href="/css/style.min.css">
+	<link rel="stylesheet" href="css/reset.min.css">
+	<link rel="stylesheet" href="css/style.min.css">
 	<title>Experience</title>
 </head>
 <body>
 
-<section class="head--nav u-col v-constraint--main"> <!-- TODO: Structurize head nav elements -->
+
+<section class="head--nav u-col v-constraint--main"> <!-- TODO:30 Structurize head nav elements -->
 	<div id="nav-head" class="u-col">
-		<div id="nav-head-title" class="test_box-custom-primary --rectangle-l"></div>
+		<div id="nav-head--title" class="test_box-custom-primary --rectangle-l"></div>
 		<div class="test_box-custom-secondary --rectangle-m"></div>
 	</div>
-	<div id="nav-menu" class="o-div_cta u-col">
-		<div class="series-row --equalize-margin">
+	<div id="nav-div_cta" class="o-div_cta u-col">
+		<div id="nav-menu" class="series-row --equalize-margin">
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 		</div>
-		<div class="series-row u-row">
+		<div class="u-row">
 			<div class="test_box c-div_cta-divider"></div>
 			<div class="test_box c-div_cta-cta"></div>
 		</div>
 	</div>
 </section>
 
-<section class="head--hero u-single"> <!-- TODO: Structurize hero elements -->
+<section class="head--hero u-single"> <!-- TODO:40 Structurize hero elements -->
+	<div id="hero-thumb" class="test_box-custom-secondary"></div>
+</section>
+
+<section class="content--category u-col"> <!-- TODO:10 Structurize category elements -->
+	<div class="u-col">
+		<div class="series-col --equalize-border" >
+			<div class="series-row --equalize-border table--category">
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+			</div>
+			<div class="series-row --equalize-border table--category">
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+				<div class="test_box-custom-primary --custom-cat"></div>
+			</div>
+		</div>
+	</div>
+	<div class="series-col v-constraint--main">
+
+		<div class="u-col category-head">
+			<div class="o-div_cta">
+				<div class="c-div_cta-head">
+					<div class="test_box"></div>
+				</div>
+				<div class="u-row">
+					<div class="test_box c-div_cta-divider"></div>
+					<div class="test_box c-div_cta-cta"></div>
+				</div>
+			</div>
+		</div>
+		<div class="series-col">
+
+			<div class="series-row --equalize-margin category-row--entry_post">
+
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+
+			</div>
+			<div class="series-row --equalize-margin category-row--entry_post">
+
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="u-col category-head">
+			<div class="o-div_cta">
+				<div class="c-div_cta-head">
+					<div class="test_box"></div>
+				</div>
+				<div class="u-row">
+					<div class="test_box c-div_cta-divider"></div>
+					<div class="test_box c-div_cta-cta"></div>
+				</div>
+			</div>
+		</div>
+		<div class="series-col">
+
+			<div class="series-row --equalize-margin category-row--entry_post">
+
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+
+			</div>
+			<div class="series-row --equalize-margin category-row--entry_post">
+
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+				<div class="o-entry_post--compact u-row">
+					<div class="c-entry_post-thumb test_box-custom-primary"></div>
+					<div class="o-entry_post-info test_box-custom-secondary"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="u-col category-head">
+			<!-- <div class="test_box"></div> -->
+		</div>
+		<div class="u-col category-head">
+		</div>
+
+	</div>
+</section>
+
+<section class="content--editors_pick u-col"> <!-- TODO:20 Structurize editor elements -->
 
 </section>
 
-<section class="content--category u-col"> <!-- TODO: Structurize category elements -->
+<section class="content--upcoming u-col"> <!-- TODO:60 Structurize upcoming elements -->
 
 </section>
 
-<section class="content--editors_pick u-col"> <!-- TODO: Structurize editor elements -->
+<section class="content--timeline u-col"> <!-- TODO:50 Structurize timeline elements -->
 
 </section>
 
-<section class="content--upcoming u-col"> <!-- TODO: Structurize upcoming elements -->
-
-</section>
-
-<section class="content--timeline u-col"> <!-- TODO: Structurize timeline elements -->
-
-</section>
-
-<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

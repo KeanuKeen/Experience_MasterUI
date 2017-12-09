@@ -25,7 +25,8 @@
       "REFINE",
       "DONE",
       "DOING",
-      "WISH_LIST"
+      "WISH_LIST",
+      "IDEA"
     ]
   },
   "lists": [
@@ -50,7 +51,7 @@
       "hidden": false
     },
     {
-      "name": "WISH_LIST",
+      "name": "IDEA",
       "hidden": false
     }
   ],
