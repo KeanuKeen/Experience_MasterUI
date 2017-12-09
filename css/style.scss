@@ -1,0 +1,231 @@
+/* TODO: Restructure CSS +workflow */
+
+@import "partials/master";
+@import "partials/debug";
+
+$bp-1: rgb(232, 74, 87);
+$bp-2: rgb(58, 157, 221);
+
+@function bp($select: 1, $level: 0){
+  $color: rgb(232, 74, 87);
+  @if $select == 1{
+    $color: lighten(rgb(232, 74, 87) , opacityIndex($level));
+  } @else if $select == 2{
+    $color: lighten(rgb(58, 157, 221) , opacityIndex($level));
+  }
+
+  @return $color;
+}
+
+@function opacityIndex($level){
+  $hue-thresh: 2.5;
+  @return ($level*10)/$hue-thresh;
+}
+
+@function rem($size){
+  @return $size + 0rem;
+}
+
+@mixin quadrilateral($height: 0, $scale: 1, $width: 0) {
+  @if $width == 0{
+    height: rem($height);
+    width: rem($height * $scale);
+  } @else if $height == 0 {
+    width: rem($width);
+    height: rem($width * $scale);
+  }
+}
+
+@mixin test_box-bordered($select, $level){
+  background: bp($select, $level);
+  border: 4px solid bp($select, 3+$level);
+}
+
+@mixin class_name-pos{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+
+//  < DEBUGGING >
+
+.test_box{
+  @include quadrilateral(3);
+  @include test_box-bordered(1,0);
+  ~ .series-row > .test_box{ // TODO: Use javascript for nested test boxes
+    @include test_box-bordered(1,1.5);
+    ~ .series-row > .test_box{
+      @include test_box-bordered(1,3);
+    }
+  }
+}
+
+.test_box-custom-primary{
+  @include test_box-bordered(2,0);
+}
+
+.test_box-custom-secondary{
+  @include test_box-bordered(2,2);
+}
+
+section{
+    margin-bottom: 2rem;
+    color: #7c7c7c;
+    position: relative;
+    &::before{
+      @include class_name-pos;
+    }
+}
+
+.head--nav{
+  padding: 2rem;
+  &::before{
+    content: 'nav';
+  }
+}
+
+.head--hero{
+  padding: 2rem;
+  &::before{
+    content: 'hero';
+  }
+}
+
+.content--category{
+  padding: 2rem;
+  &::before{
+    content: 'cateogry';
+  }
+}
+
+.content--editors_pick{
+   padding: 2rem;
+   &::before{
+    content: "editor's pick";
+  }
+}
+
+.content--upcoming{
+  padding: 2rem;
+    &::before{
+     content: "upcoming";
+   }
+}
+
+.content--timeline{
+   padding: 2rem;
+     &::before{
+      content: "timeline";
+    }
+ }
+
+#nav-head{
+  padding: 2rem;
+  position: relative;
+    &::before{
+     content: "nav menu";
+     @include class_name-pos;
+   }
+}
+
+
+
+.ghost{
+  display: block;
+  @include quadrilateral(1/3);
+}
+
+.--rectangle-l{
+  @include quadrilateral(3.75,4);
+}
+
+.--rectangle-m{
+  @include quadrilateral(2,12);
+}
+
+.--rectangle-s{
+  @include quadrilateral(2,4);
+}
+
+
+
+
+//  </ DEBUGGING >
+
+//  < DRAFT >
+
+.series-row{
+  display: flex;
+  flex-flow: row nowrap;
+  &.--equalize-border{
+    :not(:last-child){
+        border-right: none;
+    }
+  }
+  &.--equalize-margin{
+    :last-child{
+        margin-right: 0;
+    }
+  }
+  &.--equalize-height{
+    border: 1px solid red;
+  }
+  // WISH_LIST: Implement equalizations for both row and column: height, width and border. +feature,backend
+}
+
+.series-row.--equal_border{
+
+}
+
+//  </ DRAFT >
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
+.u-row{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  border: 1px solid bp(1,2);
+}
+
+.u-col{
+  @include center;
+  flex-flow: column nowrap;
+  border: 1px solid bp(1,2);
+}
+
+.u-single{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid bp(1,2);
+}
+
+.v-constraint--main{
+  max-width: 928px;
+   margin: 0rem 0;
+  display: block;
+  margin: 0 auto;
+}
+
+#nav-head{
+  @include center;
+  border: 1px solid bp(1);
+}
+
+.c-div_cta-menu-item{
+  @include quadrilateral(1.5, 4.5);
+  @include menu-item;
+}
+
+.c-div_cta-divider{
+  width: 100%;
+}
+
+.c-div_cta-cta{
+  @include quadrilateral(2.25,3);
+}
