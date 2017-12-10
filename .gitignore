@@ -1,4 +1,4 @@
 .gitattributes
 **/*.css
 css/style.min.css
-*.css
+css\style.min.css
