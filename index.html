@@ -1,5 +1,6 @@
 <!-- DONE:0 Create page sections structures +structure +frontend -->
 <!-- IDEA:0 Isolate center as a class or integrate to all Components? -->
+<!-- TODO: Fix section paddings & constraint -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -38,7 +39,7 @@
 	<div id="hero-thumb" class="test_box-custom-secondary"></div>
 </section>
 
-<section class="content--category u-col"> <!-- TODO:10 Structurize category elements -->
+<section class="content--category u-col  v-constraint--main"> <!-- TODO:10 Structurize category elements -->
 	<div class="u-col">
 		<div class="series-col --equalize-border" >
 			<div class="series-row --equalize-border table--category">
@@ -55,9 +56,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="series-col v-constraint--main">
+	<div class="series-col">
 
-		<div class="u-col category-head">
+		<div class="category-head">
 			<div class="o-div_cta">
 				<div class="c-div_cta-head">
 					<div class="test_box"></div>
@@ -96,7 +97,7 @@
 			</div>
 
 		</div>
-		<div class="u-col category-head">
+		<div class="category-head">
 			<div class="o-div_cta">
 				<div class="c-div_cta-head">
 					<div class="test_box"></div>
@@ -134,20 +135,32 @@
 
 			</div>
 
-		</div>
-
-
-		<div class="u-col category-head">
-			<!-- <div class="test_box"></div> -->
-		</div>
-		<div class="u-col category-head">
 		</div>
 
 	</div>
 </section>
 
-<section class="content--editors_pick u-col"> <!-- TODO:20 Structurize editor elements -->
-
+<section class="content--editors_pick u-col v-constraint--main"> <!-- TODO:20 Structurize editor elements -->
+	<div class="o-div_cta -head--inline -head--styled"> <!-- TODO: Align properly -->
+		<div class="u-col c-div_cta-head">
+			<div class="u-h1">
+				<div class="test_box-custom-secondary"></div>
+			</div>
+		</div>
+		<div class="u-row">
+			<div class="test_box c-div_cta-divider"></div>
+			<div class="test_box c-div_cta-cta"></div>
+		</div>
+	</div>
+	<div id="editors_pick-cntr" class="series-row v-nowrap v-start_left">
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+	</div>
 </section>
 
 <section class="content--upcoming u-col"> <!-- TODO:60 Structurize upcoming elements -->

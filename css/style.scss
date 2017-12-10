@@ -40,7 +40,7 @@ $bp: rgb(168, 133, 212);
   }
 }
 
-@mixin test_box-bordered($select, $level){
+@mixin test_box-bordered($select, $level: 0){
   background: bp($select, $level);
   border: 4px solid bp($select, 3+$level);
 }
@@ -56,7 +56,7 @@ $bp: rgb(168, 133, 212);
 
 .test_box{
   @include quadrilateral(3);
-  @include test_box-bordered(1,0);
+  @include test_box-bordered(1);
   ~ .series-row > .test_box{ // TODO:70 Use JS for nested test boxes
     @include test_box-bordered(1,1.5);
     ~ .series-row > .test_box{
@@ -66,15 +66,19 @@ $bp: rgb(168, 133, 212);
 }
 
 .test_box-custom-primary{
-  @include test_box-bordered(2,0);
+  @include test_box-bordered(2);
 }
 
 .test_box-custom-secondary{
   @include test_box-bordered(2,2);
 }
 
+.test_box-custom-main{
+  @include test_box-bordered(1);
+}
+
 section{
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
     color: #7c7c7c;
     position: relative;
     &::before{
@@ -160,6 +164,10 @@ section{
   height: 3px;
 }
 
+.u-h1 > .test_box-custom-secondary{
+  @include quadrilateral(3,3);
+}
+
 
 
 
@@ -170,6 +178,9 @@ section{
 .series-row{
   display: flex;
   flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  border: 1px solid $bp;
   @include center;
   &.--equalize-border{
     :not(:last-child){
@@ -183,6 +194,12 @@ section{
   }
   &.--equalize-height{
     border: 1px solid red;
+  }
+  &.v-nowrap{
+    flex-flow: row wrap;
+  }
+  &.v-start_left{
+    justify-content: flex-start;
   }
 
 }
@@ -210,6 +227,7 @@ section{
 
 body{
   font-family: 'Raleway', sans-serif;
+  text-align: center;
 }
 
 //// MAIN
@@ -220,11 +238,17 @@ body{
   width: 100%;
   height: auto;
   border: 1px solid $bp;
+  &.v-nowrap{
+    flex-flow: row wrap;
+  }
+  &.v-start_left{
+    justify-content: flex-start;
+  }
 }
 
 .u-col{
   @include center;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   border: 1px solid $bp;
 }
 
@@ -234,11 +258,9 @@ body{
 }
 
 .v-constraint--main{
-  max-width: 928px;
+  max-width: 1000px;
   width: 100%;
-  margin: 0rem 0;
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
 }
 
 #nav-head{
@@ -247,11 +269,29 @@ body{
 }
 .o-div_cta{
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  &.-head--inline{
+    flex-flow: row nowrap;
+  }
+  &.-head--styled{
+    align-items: flex-end;
+  }
 }
 
 .c-div_cta-menu-item{
   @include quadrilateral(1.5, 4.5);
   @include menu-item;
+}
+
+.c-div_cta-head{
+  display: block;
+}
+
+.c-div_cta-head--styled{
+  width: auto;
+  height: 2px;
+  margin-bottom: calc((1rem))
 }
 
 .c-div_cta-divider{
@@ -294,4 +334,26 @@ body{
 .o-entry_post-info{
   width: 100%;
   height: 100%;
+}
+
+.u-h1{
+  font-size: 2rem;
+   white-space: nowrap;
+   position: relative;
+   margin-bottom: .9rem;
+  &::after{
+    content: '';
+    width: 100%;
+    height: 8px;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+}
+
+.editors_pick-entry-post{
+  width: 50%;
+  height: 24rem;
 }
