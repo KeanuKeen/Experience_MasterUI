@@ -57,7 +57,7 @@ $bp: rgb(168, 133, 212);
 .test_box{
   @include quadrilateral(3);
   @include test_box-bordered(1);
-  ~ .series-row > .test_box{ // TODO:70 Use JS for nested test boxes
+  ~ .series-row > .test_box{ // TODO:90 Use JS for nested test boxes
     @include test_box-bordered(1,1.5);
     ~ .series-row > .test_box{
       @include test_box-bordered(1,3);
@@ -188,8 +188,10 @@ section{
     }
   }
   &.--equalize-margin{
-    :last-child{
-        margin-right: 0;
+    & >{
+      div:last-child{
+          margin-right: 0;
+      }
     }
   }
   &.--equalize-height{
@@ -201,10 +203,41 @@ section{
   &.v-start_left{
     justify-content: flex-start;
   }
+}
+
+.v--equalize-padding-by_col-2{
+  & > {
+    & div:nth-child(2n-1){
+      padding-right: calc(1rem/2);
+    }
+    & div:nth-child(2n){
+      padding-left: calc(1rem/2);
+    }
+  }
+}
+
+.v--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-child(-n+2)){
+      padding-bottom: 0;
+    }
+  }
+}
+
+.v-in-gap-paddings{ //Combination of trim edges & equalize paddings
 
 }
 
-.series-col{ // TODO: Use JS to get inner child and remove borders
+.series-col{ // TODO:30 Use JS to get inner child and remove borders
   display: flex;
   flex-flow: column nowrap;
   &.--equalize-border{
@@ -350,10 +383,17 @@ body{
     bottom: 0;
     left: 0;
   }
+}
 
+.o--equalized{
+  @include center;
+  width: calc(calc(100%/2));
+  height: 24rem;
+  padding: 1rem;
+  border: 1px solid $bp;
 }
 
 .editors_pick-entry-post{
-  width: 50%;
-  height: 24rem;
+  width: 100%;
+  height: 100%;
 }

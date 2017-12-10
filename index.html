@@ -1,6 +1,7 @@
-<!-- DONE:0 Create page sections structures +structure +frontend -->
+<!-- DONE:10 Create page sections structures +structure +frontend -->
 <!-- IDEA:0 Isolate center as a class or integrate to all Components? -->
-<!-- TODO: Fix section paddings & constraint -->
+<!-- TODO:10 Fix section paddings & constraint -->
+<!-- TODO:20 Merger of u-row/u-col to respective series- classes -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -16,7 +17,7 @@
 <body>
 
 
-<section class="head--nav u-col v-constraint--main"> <!-- TODO:30 Structurize head nav elements -->
+<section class="head--nav u-col v-constraint--main"> <!-- TODO:50 Structurize head nav elements -->
 	<div id="nav-head" class="u-col">
 		<div id="nav-head--title" class="test_box-custom-primary --rectangle-l"></div>
 		<div class="test_box-custom-secondary --rectangle-m"></div>
@@ -35,11 +36,11 @@
 	</div>
 </section>
 
-<section class="head--hero u-single"> <!-- TODO:40 Structurize hero elements -->
+<section class="head--hero u-single"> <!-- TODO:60 Structurize hero elements -->
 	<div id="hero-thumb" class="test_box-custom-secondary"></div>
 </section>
 
-<section class="content--category u-col  v-constraint--main"> <!-- TODO:10 Structurize category elements -->
+<section class="content--category u-col  v-constraint--main"> <!-- DONE:0 Structurize category elements -->
 	<div class="u-col">
 		<div class="series-col --equalize-border" >
 			<div class="series-row --equalize-border table--category">
@@ -140,8 +141,8 @@
 	</div>
 </section>
 
-<section class="content--editors_pick u-col v-constraint--main"> <!-- TODO:20 Structurize editor elements -->
-	<div class="o-div_cta -head--inline -head--styled"> <!-- TODO: Align properly -->
+<section class="content--editors_pick u-col v-constraint--main"> <!-- TODO:40 Structurize editor elements -->
+	<div class="o-div_cta -head--inline -head--styled"> <!-- TODO:0 Align properly -->
 		<div class="u-col c-div_cta-head">
 			<div class="u-h1">
 				<div class="test_box-custom-secondary"></div>
@@ -152,22 +153,30 @@
 			<div class="test_box c-div_cta-cta"></div>
 		</div>
 	</div>
-	<div id="editors_pick-cntr" class="series-row v-nowrap v-start_left">
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
-		<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+	<div id="cntr-editors_pick-entry" class="series-row v--trim-padding-by_col-2 v-nowrap v-start_left">
+		<div class="o--equalized">
+			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		</div>
+		<div class="o--equalized">
+			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		</div>
+		<div class="o--equalized">
+			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		</div>
+		<div class="o--equalized">
+			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		</div>
+		<div class="o--equalized">
+			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
+		</div>
 	</div>
 </section>
 
-<section class="content--upcoming u-col"> <!-- TODO:60 Structurize upcoming elements -->
+<section class="content--upcoming u-col"> <!-- TODO:80 Structurize upcoming elements -->
 
 </section>
 
-<section class="content--timeline u-col"> <!-- TODO:50 Structurize timeline elements -->
+<section class="content--timeline u-col"> <!-- TODO:70 Structurize timeline elements -->
 
 </section>
 
