@@ -6,7 +6,6 @@
 $bp-1: rgb(232, 74, 87);
 $bp-2: rgb(58, 157, 221);
 $bp: rgb(168, 133, 212);
-$padding--large: 4;
 
 @function bp($select: 1, $level: 0){
   $color: rgb(232, 74, 87);
@@ -206,15 +205,6 @@ section{
   }
 }
 
-<<<<<<< HEAD
-.--equalize-padding-by_col-2{
-  & > {
-    & div:nth-child(2n-1){
-      padding-right: calc(4rem/2);
-    }
-    & div:nth-child(2n){
-      padding-left: calc(4rem/2);
-=======
 .v--equalize-padding-by_col-2{
   & > {
     & div:nth-child(2n-1){
@@ -242,24 +232,10 @@ section{
     }
     & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
       padding-bottom: 0;
->>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
     }
   }
 }
 
-<<<<<<< HEAD
-.v--trim-padding-by_col-2{
-  & > {
-    & div:nth-child(2n-1){
-      padding-left: 0;
-    }
-    & div:nth-child(2n){
-      padding-right: 0;
-    }
-  }
-}
-
-=======
 .v-in-gap-paddings{ //Combination of trim edges & equalize paddings
   display: none;
 }
@@ -277,7 +253,6 @@ section{
 }
 
 
->>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
 .series-col{ // TODO:30 Use JS to get inner child and remove borders
   display: flex;
   flex-flow: column nowrap;
@@ -425,18 +400,6 @@ body{
     bottom: 0;
     left: 0;
   }
-<<<<<<< HEAD
-}
-
-.o--equalized{
-  @include center;
-  width: 50%;
-  height: 24rem;
-  padding: 4rem;
-  border: 1px solid $bp;
-}
-
-=======
 }
 
 .o--equalized{
@@ -446,7 +409,6 @@ body{
   border: 1px solid $bp;
 }
 
->>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
 .editors_pick-entry-post{
   width: 100%;
   height: 100%;
