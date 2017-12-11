@@ -1,0 +1,415 @@
+/* TODO: Restructure CSS +workflow */
+
+@import "partials/master";
+@import "partials/debug";
+
+$bp-1: rgb(232, 74, 87);
+$bp-2: rgb(58, 157, 221);
+$bp: rgb(168, 133, 212);
+
+@function bp($select: 1, $level: 0){
+  $color: rgb(232, 74, 87);
+  @if $select == 1{
+    $color: lighten(rgb(232, 74, 87) , opacityIndex($level));
+  } @else if $select == 2{
+    $color: lighten(rgb(58, 157, 221) , opacityIndex($level));
+  }
+
+  @return $color;
+}
+
+@function opacityIndex($level){
+  $hue-thresh: 2.5;
+  @return ($level*10)/$hue-thresh;
+}
+
+@function rem($size){
+  @return $size + 0rem;
+}
+
+@mixin quadrilateral($height: 0, $scale: 1, $width: 0) {
+  @if $width == 0{
+    height: rem($height);
+    width: rem($height * $scale);
+  } @else if $scale == 0{
+    width: rem($width);
+    height: rem($height);
+  } @else if $height == 0 {
+    width: rem($width);
+    height: rem($width * $scale);
+  }
+}
+
+@mixin test_box-bordered($select, $level: 0){
+  background: bp($select, $level);
+  border: 4px solid bp($select, 3+$level);
+}
+
+@mixin class_name-pos{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+
+////  < DEBUGGING >
+
+.test_box{
+  @include quadrilateral(3);
+  @include test_box-bordered(1);
+  ~ .series-row > .test_box{ // TODO:90 Use JS for nested test boxes
+    @include test_box-bordered(1,1.5);
+    ~ .series-row > .test_box{
+      @include test_box-bordered(1,3);
+    }
+  }
+}
+
+.test_box-custom-primary{
+  @include test_box-bordered(2);
+}
+
+.test_box-custom-secondary{
+  @include test_box-bordered(2,2);
+}
+
+.test_box-custom-main{
+  @include test_box-bordered(1);
+}
+
+section{
+    margin-bottom: 6rem;
+    color: #7c7c7c;
+    position: relative;
+    &::before{
+      @include class_name-pos;
+    }
+}
+
+.head--nav{
+  padding: 2rem;
+  &::before{
+    content: 'nav';
+  }
+}
+
+.head--hero{
+  padding: 2rem;
+  &::before{
+    content: 'hero';
+  }
+}
+
+.content--category{
+  padding: 2rem;
+  &::before{
+    content: 'cateogry';
+  }
+}
+
+.content--editors_pick{
+   padding: 2rem;
+   &::before{
+    content: "editor's pick";
+  }
+}
+
+.content--upcoming{
+  padding: 2rem;
+    &::before{
+     content: "upcoming";
+   }
+}
+
+.content--timeline{
+   padding: 2rem;
+     &::before{
+      content: "timeline";
+    }
+ }
+
+#nav-head{
+  padding: 2rem;
+  position: relative;
+    &::before{
+     content: "nav menu";
+     @include class_name-pos;
+   }
+}
+
+
+
+.ghost{
+  display: block;
+  @include quadrilateral(1/3);
+}
+
+.--rectangle-l{
+  @include quadrilateral(3.75,4);
+}
+
+.--rectangle-m{
+  @include quadrilateral(2,12);
+}
+
+.--rectangle-s{
+  @include quadrilateral(2,4);
+}
+
+.--custom-cat{
+  @include quadrilateral(6, 1.5);
+}
+
+.c-div_cta-divider{
+  height: 3px;
+}
+
+.u-h1 > .test_box-custom-secondary{
+  @include quadrilateral(3,3);
+}
+
+
+
+
+//  </ DEBUGGING >
+
+////  < DRAFT >
+
+.series-row{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  border: 1px solid $bp;
+  @include center;
+  &.--equalize-border{
+    :not(:last-child){
+        border-right: none;
+    }
+  }
+  &.--equalize-margin{
+    & >{
+      div:last-child{
+          margin-right: 0;
+      }
+    }
+  }
+  &.--equalize-height{
+    border: 1px solid red;
+  }
+  &.v-nowrap{
+    flex-flow: row wrap;
+  }
+  &.v-start_left{
+    justify-content: flex-start;
+  }
+}
+
+.v--equalize-padding-by_col-2{
+  & > {
+    & div:nth-child(2n-1){
+      padding-right: calc(1rem/2);
+    }
+    & div:nth-child(2n){
+      padding-left: calc(1rem/2);
+    }
+  }
+}
+
+.v--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+      padding-bottom: 0;
+    }
+  }
+}
+
+.v-in-gap-paddings{ //Combination of trim edges & equalize paddings
+  display: none;
+}
+
+.v-padding-1{
+  & > .o--equalized{
+    padding: .5rem;
+  }
+}
+
+.v-padding-5{
+  & > .o--equalized{
+    padding: 2.5rem;
+  }
+}
+
+
+.series-col{ // TODO:30 Use JS to get inner child and remove borders
+  display: flex;
+  flex-flow: column nowrap;
+  &.--equalize-border{
+    & > {
+      & div:not(:first-child) > div{
+        border-top: none;
+      }
+    }
+  }
+  &.--equalize-margin{
+    & > {
+      & div:first-child > div{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+//  </ DRAFT >
+
+body{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+//// MAIN
+
+.u-row{
+  @include center;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: auto;
+  border: 1px solid $bp;
+  &.v-nowrap{
+    flex-flow: row wrap;
+  }
+  &.v-start_left{
+    justify-content: flex-start;
+  }
+}
+
+.u-col{
+  @include center;
+  flex-flow: column wrap;
+  border: 1px solid $bp;
+}
+
+.u-single{
+  @include center;
+  border: 1px solid $bp;
+}
+
+.v-constraint--main{
+  max-width: 1000px;
+  width: 100%;
+  display: inline-block;
+}
+
+#nav-head{
+  @include center;
+  border: 1px solid $bp;
+}
+.o-div_cta{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  &.-head--inline{
+    flex-flow: row nowrap;
+  }
+  &.-head--styled{
+    align-items: flex-end;
+  }
+}
+
+.c-div_cta-menu-item{
+  @include quadrilateral(1.5, 4.5);
+  @include menu-item;
+}
+
+.c-div_cta-head{
+  display: block;
+}
+
+.c-div_cta-head--styled{
+  width: auto;
+  height: 2px;
+  margin-bottom: calc((1rem))
+}
+
+.c-div_cta-divider{
+  width: 100%;
+}
+
+.c-div_cta-cta{
+  @include quadrilateral(2.25,3);
+  margin-left: 1rem;
+}
+
+#nav-menu{
+  margin-bottom: -10px;
+}
+
+#hero-thumb{
+  width: 100%;
+  height: 35rem;
+}
+
+.category-head{
+  margin-top: 3rem;
+}
+
+.category-row--entry_post{
+  margin-top: 1.25rem;
+}
+
+.o-entry_post--compact{
+  // height: 20rem;
+  height: 100%;
+  width: 100%;
+  border: 1px solid $bp;
+}
+
+.c-entry_post-thumb{
+  width: 75%;
+  height: 100%;
+}
+
+.o-entry_post-info{
+  width: 100%;
+  height: 100%;
+}
+
+.u-h1{
+  font-size: 2rem;
+   white-space: nowrap;
+   position: relative;
+   margin-bottom: .9rem;
+  &::after{
+    content: '';
+    width: 100%;
+    height: 8px;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.o--equalized{
+  @include center;
+  width: calc(100%/2);
+  height: 24rem;
+  border: 1px solid $bp;
+}
+
+.editors_pick-entry-post{
+  width: 100%;
+  height: 100%;
+}

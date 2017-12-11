@@ -24,7 +24,9 @@
       "BUGS",
       "REFINE",
       "DONE",
-      "DOING"
+      "DOING",
+      "WISH_LIST",
+      "IDEA"
     ]
   },
   "lists": [
@@ -46,6 +48,10 @@
     },
     {
       "name": "DONE",
+      "hidden": false
+    },
+    {
+      "name": "IDEA",
       "hidden": false
     }
   ],
