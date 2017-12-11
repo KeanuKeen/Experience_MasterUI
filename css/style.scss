@@ -227,7 +227,10 @@ section{
     & div:not(:nth-child(n+3)){
       padding-top: 0;
     }
-    & div:nth-child(-n+2){
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
       padding-bottom: 0;
     }
   }
