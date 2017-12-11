@@ -1,2 +1,8 @@
 .gitattributes
+<<<<<<< HEAD
 **/*.css
+=======
+**/*.css
+css/style.min.css
+css/style.min.css
+>>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc

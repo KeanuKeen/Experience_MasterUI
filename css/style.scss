@@ -206,6 +206,7 @@ section{
   }
 }
 
+<<<<<<< HEAD
 .--equalize-padding-by_col-2{
   & > {
     & div:nth-child(2n-1){
@@ -213,10 +214,40 @@ section{
     }
     & div:nth-child(2n){
       padding-left: calc(4rem/2);
+=======
+.v--equalize-padding-by_col-2{
+  & > {
+    & div:nth-child(2n-1){
+      padding-right: calc(1rem/2);
+    }
+    & div:nth-child(2n){
+      padding-left: calc(1rem/2);
     }
   }
 }
 
+.v--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+      padding-bottom: 0;
+>>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
+    }
+  }
+}
+
+<<<<<<< HEAD
 .v--trim-padding-by_col-2{
   & > {
     & div:nth-child(2n-1){
@@ -228,6 +259,25 @@ section{
   }
 }
 
+=======
+.v-in-gap-paddings{ //Combination of trim edges & equalize paddings
+  display: none;
+}
+
+.v-padding-1{
+  & > .o--equalized{
+    padding: .5rem;
+  }
+}
+
+.v-padding-5{
+  & > .o--equalized{
+    padding: 2.5rem;
+  }
+}
+
+
+>>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
 .series-col{ // TODO:30 Use JS to get inner child and remove borders
   display: flex;
   flex-flow: column nowrap;
@@ -345,8 +395,9 @@ body{
 }
 
 .o-entry_post--compact{
-  margin-right: 1.25rem;
-  height: 20rem;
+  // height: 20rem;
+  height: 100%;
+  width: 100%;
   border: 1px solid $bp;
 }
 
@@ -374,6 +425,7 @@ body{
     bottom: 0;
     left: 0;
   }
+<<<<<<< HEAD
 }
 
 .o--equalized{
@@ -384,6 +436,17 @@ body{
   border: 1px solid $bp;
 }
 
+=======
+}
+
+.o--equalized{
+  @include center;
+  width: calc(100%/2);
+  height: 24rem;
+  border: 1px solid $bp;
+}
+
+>>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
 .editors_pick-entry-post{
   width: 100%;
   height: 100%;
