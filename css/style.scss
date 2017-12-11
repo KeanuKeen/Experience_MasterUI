@@ -227,15 +227,28 @@ section{
     & div:not(:nth-child(n+3)){
       padding-top: 0;
     }
-    & div:not(:nth-child(-n+2)){
+    & div:nth-child(-n+2){
       padding-bottom: 0;
     }
   }
 }
 
 .v-in-gap-paddings{ //Combination of trim edges & equalize paddings
-
+  display: none;
 }
+
+.v-padding-1{
+  & > .o--equalized{
+    padding: .5rem;
+  }
+}
+
+.v-padding-5{
+  & > .o--equalized{
+    padding: 2.5rem;
+  }
+}
+
 
 .series-col{ // TODO:30 Use JS to get inner child and remove borders
   display: flex;
@@ -354,8 +367,9 @@ body{
 }
 
 .o-entry_post--compact{
-  margin-right: 1.25rem;
-  height: 20rem;
+  // height: 20rem;
+  height: 100%;
+  width: 100%;
   border: 1px solid $bp;
 }
 
@@ -387,9 +401,8 @@ body{
 
 .o--equalized{
   @include center;
-  width: calc(calc(100%/2));
+  width: calc(100%/2);
   height: 24rem;
-  padding: 1rem;
   border: 1px solid $bp;
 }
 
