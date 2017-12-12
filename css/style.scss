@@ -164,13 +164,6 @@ section{
   height: 3px;
 }
 
-.u-h1 > .test_box-custom-secondary{
-  @include quadrilateral(3,3);
-}
-
-
-
-
 //  </ DEBUGGING >
 
 ////  < DRAFT >
@@ -201,6 +194,79 @@ section{
   }
 }
 
+.series-col{ // TODO:30 Use JS to get inner child and remove borders
+  @include center;
+  flex-direction: column;
+  border: 1px solid $bp;
+  &.--equalize-border{
+    & > {
+      & div:not(:first-child) > div{
+        border-top: none;
+      }
+    }
+  }
+  &.--equalize-margin{
+    & > {
+      & div:first-child > div{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// .u--equalize-padding-by_col-2{ //Use instead flexbox's space evenly
+//   & > {
+//     & div:nth-child(2n-1){
+//       padding-right: calc(1rem/2);
+//     }
+//     & div:nth-child(2n){
+//       padding-left: calc(1rem/2);
+//     }
+//   }
+// }
+
+//  </ DRAFT >
+
+body{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+//// MAIN
+
+// .u-row{
+//   display: flex;
+//   flex-flow: row nowrap;
+//   width: 100%;
+//   height: auto;
+//   border: 1px solid $bp;
+//   &.u-nowrap{
+//     flex-flow: row wrap;
+//   }
+//   &.v-start_left{
+//     justify-content: flex-start;
+//   }
+// }
+
+// .u-col{
+//   @include center;
+//   flex-direction: column;
+//   border: 1px solid $bp;
+// }
+
+//// Utilities
+
+.u-single{
+  @include center;
+  border: 1px solid $bp;
+}
+
+.u-constraint--main{
+  max-width: 1000px;
+  width: 100%;
+  display: inline-block;
+}
+
 .u-center{
   @include center;
 }
@@ -211,37 +277,6 @@ section{
 
 .u-wrap{
   flex-wrap: wrap;
-}
-
-.u--equalize-padding-by_col-2{
-  & > {
-    & div:nth-child(2n-1){
-      padding-right: calc(1rem/2);
-    }
-    & div:nth-child(2n){
-      padding-left: calc(1rem/2);
-    }
-  }
-}
-
-.u--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
-  & > {
-    & div:nth-child(2n-1){
-      padding-left: 0;
-    }
-    & div:nth-child(2n){
-      padding-right: 0;
-    }
-    & div:not(:nth-child(n+3)){
-      padding-top: 0;
-    }
-    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
-      padding-bottom: 0;
-    }
-    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
-      padding-bottom: 0;
-    }
-  }
 }
 
 .u-in-gap-paddings{ //Combination of trim edges & equalize paddings
@@ -264,71 +299,47 @@ section{
   width: 100%;
 }
 
-.series-col{ // TODO:30 Use JS to get inner child and remove borders
-  display: flex;
-  flex-direction: column;
-  @include center;
-  border: 1px solid $bp;
-  &.--equalize-border{
-    & > {
-      & div:not(:first-child) > div{
-        border-top: none;
-      }
+.u--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+      padding-bottom: 0;
     }
   }
-  &.--equalize-margin{
-    & > {
-      & div:first-child > div{
-        margin-top: 0;
-      }
-    }
+}
+
+.u-h1{
+  font-size: 2rem;
+   white-space: nowrap;
+   position: relative;
+   margin-bottom: .9rem;
+  &::after{
+    content: '';
+    width: 100%;
+    height: 8px;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  & > .test_box-custom-secondary{
+    @include quadrilateral(3,3);
   }
 }
 
-//  </ DRAFT >
+//// Objects
 
-body{
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-}
-
-//// MAIN
-
-// .u-row{
-//   @include center;
-//   flex-flow: row nowrap;
-//   width: 100%;
-//   height: auto;
-//   border: 1px solid $bp;
-//   &.u-nowrap{
-//     flex-flow: row wrap;
-//   }
-//   &.v-start_left{
-//     justify-content: flex-start;
-//   }
-// }
-
-// .u-col{
-//   @include center;
-//   flex-direction: column;
-//   border: 1px solid $bp;
-// }
-
-.u-single{
-  @include center;
-  border: 1px solid $bp;
-}
-
-.u-constraint--main{
-  max-width: 1000px;
-  width: 100%;
-  display: inline-block;
-}
-
-#nav-head{
-  @include center;
-  border: 1px solid $bp;
-}
 .o-div_cta{
   width: 100%;
   display: flex;
@@ -341,10 +352,31 @@ body{
   }
 }
 
+.o-entry_post--compact{
+  // height: 20rem;
+  height: 100%;
+  width: 100%;
+  border: 1px solid $bp;
+}
+
+.o-entry_post-info{
+  width: 100%;
+  height: 100%;
+}
+
+.o--equalized{
+  @include center;
+  width: calc(100%/2);
+  height: 24rem;
+  border: 1px solid $bp;
+}
+
 .c-div_cta-menu-item{
   @include quadrilateral(1.5, 4.5);
   @include menu-item;
 }
+
+//// Components
 
 .c-div_cta-head{
   display: block;
@@ -365,15 +397,6 @@ body{
   margin-left: 1rem;
 }
 
-#nav-menu{
-  margin-bottom: -10px;
-}
-
-#hero-thumb{
-  width: 100%;
-  height: 35rem;
-}
-
 .category-head{
   margin-top: 3rem;
   width: 100%;
@@ -383,43 +406,24 @@ body{
   margin-top: 1.25rem;
 }
 
-.o-entry_post--compact{
-  // height: 20rem;
-  height: 100%;
-  width: 100%;
-  border: 1px solid $bp;
-}
-
 .c-entry_post-thumb{
   width: 75%;
   height: 100%;
 }
 
-.o-entry_post-info{
+//// Specifics
+
+#nav-menu{
+  margin-bottom: -10px;
+}
+
+#hero-thumb{
   width: 100%;
-  height: 100%;
+  height: 35rem;
 }
 
-.u-h1{
-  font-size: 2rem;
-   white-space: nowrap;
-   position: relative;
-   margin-bottom: .9rem;
-  &::after{
-    content: '';
-    width: 100%;
-    height: 8px;
-    background: red;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-
-.o--equalized{
+#nav-head{
   @include center;
-  width: calc(100%/2);
-  height: 24rem;
   border: 1px solid $bp;
 }
 
