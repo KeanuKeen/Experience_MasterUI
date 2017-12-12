@@ -1,7 +1,7 @@
 <!-- DONE:10 Create page sections structures +structure +frontend -->
 <!-- IDEA:0 Isolate center as a class or integrate to all Components? -->
 <!-- TODO:10 Fix section paddings & constraint -->
-<!-- TODO:20 Merger of u-row/u-col to respective series- classes -->
+<!-- TODO:20 Merger of series-row/series-col to respective series- classes -->
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -17,31 +17,31 @@
 <body>
 
 
-<section class="head--nav u-col v-constraint--main"> <!-- TODO:50 Structurize head nav elements -->
-	<div id="nav-head" class="u-col">
+<section id="cntr-nav" class="series-col u-constraint--main"> <!-- TODO:50 Structurize head nav elements -->
+	<div id="nav-head" class="series-col">
 		<div id="nav-head--title" class="test_box-custom-primary --rectangle-l"></div>
 		<div class="test_box-custom-secondary --rectangle-m"></div>
 	</div>
-	<div id="nav-div_cta" class="o-div_cta u-col">
-		<div id="nav-menu" class="series-row --equalize-margin">
+	<div id="nav-div_cta" class="o-div_cta series-col">
+		<div id="nav-menu" class="series-row u-center --equalize-margin">
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 			<div class="test_box-custom-primary c-div_cta-menu-item"></div>
 		</div>
-		<div class="u-row">
+		<div class="series-row u-center">
 			<div class="test_box c-div_cta-divider"></div>
 			<div class="test_box c-div_cta-cta"></div>
 		</div>
 	</div>
 </section>
 
-<section class="head--hero u-single"> <!-- TODO:60 Structurize hero elements -->
+<section id="cntr-hero" class="u-single"> <!-- TODO:60 Structurize hero elements -->
 	<div id="hero-thumb" class="test_box-custom-secondary"></div>
 </section>
 
-<section class="content--category u-col  v-constraint--main"> <!-- DONE:0 Structurize category elements -->
-	<div class="u-col">
+<section id="cntr-category" class="series-col  u-constraint--main"> <!-- DONE:0 Structurize category elements -->
+	<div class="series-col">
 		<div class="series-col --equalize-border" >
 			<div class="series-row --equalize-border table--category">
 				<div class="test_box-custom-primary --custom-cat"></div>
@@ -64,33 +64,33 @@
 				<div class="c-div_cta-head">
 					<div class="test_box"></div>
 				</div>
-				<div class="u-row">
+				<div class="u-center series-row">
 					<div class="test_box c-div_cta-divider"></div>
 					<div class="test_box c-div_cta-cta"></div>
 				</div>
 			</div>
 		</div>
-		<div class="series-row v--trim-padding-by_col-2 v-padding-1 v-nowrap v-start_left">
+		<div class="series-row u--trim-padding-by_col-2 u-padding-1 u-wrap u-start_left">
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
@@ -103,33 +103,33 @@
 				<div class="c-div_cta-head">
 					<div class="test_box"></div>
 				</div>
-				<div class="u-row">
+				<div class="u-center series-row">
 					<div class="test_box c-div_cta-divider"></div>
 					<div class="test_box c-div_cta-cta"></div>
 				</div>
 			</div>
 		</div>
-		<div class="series-row v--trim-padding-by_col-2 v-padding-1 v-nowrap v-start_left">
+		<div class="series-row u--trim-padding-by_col-2 u-padding-1 u-wrap u-start_left">
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact u-row">
+				<div class="o-entry_post--compact series-row">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
@@ -139,19 +139,19 @@
 	</div>
 </section>
 
-<section class="content--editors_pick u-col v-constraint--main"> <!-- TODO:40 Structurize editor elements -->
+<section id="cntr-editors_pick" class="series-col u-constraint--main"> <!-- TODO:40 Structurize editor elements -->
 	<div class="o-div_cta -head--inline -head--styled"> <!-- TODO:0 Align properly -->
-		<div class="u-col c-div_cta-head">
+		<div class="series-col c-div_cta-head">
 			<div class="u-h1">
 				<div class="test_box-custom-secondary"></div>
 			</div>
 		</div>
-		<div class="u-row">
+		<div class="u-center series-row">
 			<div class="test_box c-div_cta-divider"></div>
 			<div class="test_box c-div_cta-cta"></div>
 		</div>
 	</div>
-	<div id="cntr-editors_pick-entry" class="series-row v--trim-padding-by_col-2 v-padding-5 v-nowrap v-start_left">
+	<div id="cntr-editors_pick-entry" class="series-row u--trim-padding-by_col-2 u-padding-5 u-wrap u-start_left">
 		<div class="o--equalized">
 			<div class="test_box-custom-secondary editors_pick-entry-post"></div>
 		</div>
@@ -170,11 +170,11 @@
 	</div>
 </section>
 
-<section class="content--upcoming u-col"> <!-- TODO:80 Structurize upcoming elements -->
+<section id="cntr-upcoming" class="series-col"> <!-- TODO:80 Structurize upcoming elements -->
 
 </section>
 
-<section class="content--timeline u-col"> <!-- TODO:70 Structurize timeline elements -->
+<section id="cntr-timeline" class="series-col"> <!-- TODO:70 Structurize timeline elements -->
 
 </section>
 
