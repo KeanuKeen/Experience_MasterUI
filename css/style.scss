@@ -31,9 +31,6 @@ $bp: rgb(168, 133, 212);
   @if $width == 0{
     height: rem($height);
     width: rem($height * $scale);
-  } @else if $scale == 0{
-    width: rem($width);
-    height: rem($height);
   } @else if $height == 0 {
     width: rem($width);
     height: rem($width * $scale);
@@ -75,6 +72,7 @@ $bp: rgb(168, 133, 212);
 
 .test_box-custom-main{
   @include test_box-bordered(1);
+  border: none !important;
 }
 
 section{
@@ -115,7 +113,7 @@ section{
 }
 
 #cntr-upcoming{
-  padding: 2rem;
+  // padding: 2rem;
     &::before{
      content: "upcoming";
    }
@@ -168,11 +166,11 @@ section{
 
 ////  < DRAFT >
 
-.series-row{
+.series-row {
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: auto;
+  position: relative;
   border: 1px solid $bp;
   &.--equalize-border{
     :not(:last-child){
@@ -195,9 +193,10 @@ section{
 }
 
 .series-col{ // TODO:30 Use JS to get inner child and remove borders
-  @include center;
+  display: flex;
   flex-direction: column;
   border: 1px solid $bp;
+  position: relative;
   &.--equalize-border{
     & > {
       & div:not(:first-child) > div{
@@ -299,6 +298,10 @@ body{
   width: 100%;
 }
 
+.u-parent-height{
+  height: 100%;
+}
+
 .u--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
   & > {
     & div:nth-child(2n-1){
@@ -336,6 +339,24 @@ body{
   & > .test_box-custom-secondary{
     @include quadrilateral(3,3);
   }
+}
+
+.u-section-head--center{
+  height: 12rem;
+  justify-content: flex-end;
+}
+
+.u-divider--inner{
+  // width: 7rem;
+  flex-shrink: 0;
+}
+
+.u-timeline-entry--right{
+  flex-direction: row-reverse;
+}
+
+.u-noshrink{
+  flex-shrink: 0;
 }
 
 //// Objects
@@ -411,6 +432,63 @@ body{
   height: 100%;
 }
 
+.c-divider--three-outer, .c-divider--three-inner{
+  height: 1px;
+}
+
+.c-timeline--ts_date{
+  @include quadrilateral(5,1);
+  flex-shrink: 0;
+}
+
+.c-natural_form-under{
+  width: 7rem;
+}
+
+.c-timeline-entry-head{
+  @include quadrilateral(4, 2.5);
+  // display: inline-block;
+}
+
+.c-entry-tag{
+  @include quadrilateral(2,7);
+  position: absolute;
+  width: 100%;
+}
+
+.c-timeline-node--line{
+  @include quadrilateral(0, 6, 1);
+}
+
+.u-timeline-entry-head--left{
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  & .c-entry-tag{
+    top: -2.1rem;
+    right: 0;
+    & .relative-cntr{
+      flex-direction: row-reverse;
+    }
+  }
+  & .c-tag{
+    margin-left: 1rem;
+  }
+}
+
+.u-timeline-entry-head--right{
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  & .c-entry-tag{
+    top: -2.1rem;
+    left: 0;
+  }
+  .c-tag{
+    margin-right: 1rem;
+  }
+}
+
 //// Specifics
 
 #nav-menu{
@@ -430,4 +508,15 @@ body{
 .editors_pick-entry-post{
   width: 100%;
   height: 100%;
+}
+
+#cntr-upcoming-entry{
+  padding: 8rem 2rem;
+}
+
+.relative-cntr{
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: flex-start;
 }
