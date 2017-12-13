@@ -452,7 +452,6 @@ body{
 
 .c-entry-tag{
   @include quadrilateral(2,7);
-  position: absolute;
   width: 100%;
 }
 
@@ -465,14 +464,16 @@ body{
   justify-content: flex-end;
   position: relative;
   & .c-entry-tag{
+    position: absolute;
     top: -2.1rem;
     right: 0;
     & .relative-cntr{
       flex-direction: row-reverse;
     }
   }
-  & .c-tag{
+  .c-tag{
     margin-left: 1rem;
+    margin-right: 0;
   }
 }
 
@@ -481,12 +482,18 @@ body{
   justify-content: flex-start;
   position: relative;
   & .c-entry-tag{
+    position: absolute;
     top: -2.1rem;
     left: 0;
   }
-  .c-tag{
-    margin-right: 1rem;
-  }
+}
+
+.c-tag{
+  margin-right: 1rem;
+}
+
+.c-upcoming-feat-thumb{
+  @include quadrilateral(22, 1.5);
 }
 
 //// Specifics
@@ -518,5 +525,5 @@ body{
   display: flex;
   position: relative;
   width: 100%;
-  justify-content: flex-start;
+  // justify-content: flex-start;
 }
