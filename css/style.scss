@@ -1,7 +1,7 @@
 /* TODO: Restructure CSS +workflow */
 
-@import "partials/master";
-@import "partials/debug";
+@import "partials/_master.scss";
+@import "partials/_debug.scss";
 
 $bp-1: rgb(232, 74, 87);
 $bp-2: rgb(58, 157, 221);
@@ -170,7 +170,7 @@ section{
   display: flex;
   flex-direction: row;
   height: auto;
-  position: relative;
+  // position: relative;
   border: 1px solid $bp;
   &.--equalize-border{
     :not(:last-child){
@@ -187,6 +187,9 @@ section{
   &.--equalize-height{
     border: 1px solid red;
   }
+  &.u-start_right{
+    flex-direction: row-reverse;
+  }
   &.u-start_left{
     justify-content: flex-start;
   }
@@ -196,7 +199,7 @@ section{
   display: flex;
   flex-direction: column;
   border: 1px solid $bp;
-  position: relative;
+  // position: relative;
   &.--equalize-border{
     & > {
       & div:not(:first-child) > div{
@@ -210,6 +213,12 @@ section{
         margin-top: 0;
       }
     }
+  }
+  &.u-start_right{
+    align-items: flex-end;
+  }
+  &.u-start_left{
+    justify-content: flex-start;
   }
 }
 
@@ -359,6 +368,57 @@ body{
   flex-shrink: 0;
 }
 
+.u-timeline-entry-head--left{
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  & .c-entry-tag{
+    position: absolute;
+    top: -2.1rem;
+    right: 1.75rem;
+    & .relative-cntr{
+      flex-direction: row-reverse;
+    }
+  }
+  .c-tag{
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+  .v-timeline-entry-desc{
+    align-self: self-end;
+    margin-right: 1.75rem;
+  }
+}
+
+.u-timeline-entry-head--right{
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  & .c-entry-tag{
+    position: absolute;
+    top: -2.1rem;
+    left: 1.75rem;
+  }
+  .v-timeline-entry-desc{
+    margin-left: 1.75rem;
+  }
+}
+
+.u-timeline-entry-head{
+  position: relative;
+}
+
+.u-timeline--main-head{
+  margin-top: 4.75rem;
+  margin-left: 2rem;
+}
+
+.u-timeline--ts_thumb{
+  @include quadrilateral(20, 1.5);
+  // margin: 2.5rem;
+  // box-shadow: 1px 3px 34px -3px rgba(0,0,0,0.65)
+}
+
 //// Objects
 
 .o-div_cta{
@@ -392,12 +452,12 @@ body{
   border: 1px solid $bp;
 }
 
+//// Components
+
 .c-div_cta-menu-item{
   @include quadrilateral(1.5, 4.5);
   @include menu-item;
 }
-
-//// Components
 
 .c-div_cta-head{
   display: block;
@@ -445,55 +505,35 @@ body{
   width: 7rem;
 }
 
-.c-timeline-entry-head{
-  @include quadrilateral(4, 2.5);
-  // display: inline-block;
-}
-
 .c-entry-tag{
   @include quadrilateral(2,7);
-  width: 100%;
+  width: auto;
 }
 
 .c-timeline-node--line{
   @include quadrilateral(0, 6, 1);
 }
 
-.u-timeline-entry-head--left{
-  align-items: flex-start;
-  justify-content: flex-end;
-  position: relative;
-  & .c-entry-tag{
-    position: absolute;
-    top: -2.1rem;
-    right: 0;
-    & .relative-cntr{
-      flex-direction: row-reverse;
-    }
-  }
-  .c-tag{
-    margin-left: 1rem;
-    margin-right: 0;
-  }
-}
-
-.u-timeline-entry-head--right{
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: relative;
-  & .c-entry-tag{
-    position: absolute;
-    top: -2.1rem;
-    left: 0;
-  }
-}
-
 .c-tag{
   margin-right: 1rem;
+  flex-shrink: 0;
 }
 
 .c-upcoming-feat-thumb{
   @include quadrilateral(22, 1.5);
+}
+
+.c-timeline--ts_thumb{
+  width: 100%;
+}
+
+//// Visuals
+
+.v-timeline-entry-head{
+    @include quadrilateral(4, 2.5);
+}
+.v-timeline-entry-desc{
+  @include quadrilateral(7, 3);
 }
 
 //// Specifics
@@ -524,6 +564,11 @@ body{
 .relative-cntr{
   display: flex;
   position: relative;
-  width: 100%;
+  // width: 100%;
   // justify-content: flex-start;
+}
+
+.pusher{
+  width: 5rem;
+  flex-shrink: 0;
 }
