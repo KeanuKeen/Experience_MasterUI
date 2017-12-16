@@ -1,8 +1,3 @@
-<!-- DONE:10 Create page sections structures +structure +frontend -->
-<!-- IDEA:0 Isolate center as a class or integrate to all Components? -->
-<!-- TODO:10 Fix section paddings & constraint -->
-<!-- TODO:20 Merger of series-row/series-col to respective series- classes -->
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -16,7 +11,7 @@
 </head>
 <body>
 
-<section id="cntr-nav" class="series-col u-constraint--main"> <!-- TODO:50 Structurize head nav elements -->
+<section id="cntr-nav" class="series-col u-constraint--main">
 	<div id="nav-head" class="series-col">
 		<div id="nav-head-title" class="test_box-custom-primary --rectangle-l"></div>
 		<div class="test_box-custom-secondary --rectangle-m"></div>
@@ -35,11 +30,11 @@
 	</div>
 </section>
 
-<section id="cntr-hero" class="u-single"> <!-- TODO:60 Structurize hero elements -->
+<section id="cntr-hero" class="u-single">
 	<div id="hero-thumb" class="test_box-custom-secondary"></div>
 </section>
 
-<section id="cntr-category" class="series-col  u-constraint--main"> <!-- DONE:0 Structurize category elements -->
+<section id="cntr-category" class="series-col  u-constraint--main">
 	<div class="series-col u-center">
 		<div class="series-col --equalize-border" >
 			<div class="series-row --equalize-border table--category">
@@ -71,74 +66,36 @@
 		</div>
 		<div class="series-row u--trim-padding-by_col-2 u-padding-1 u-wrap u-start_left">
 			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
+				<div class="o-entry_post--compact series-col">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
+				<div class="o-entry_post--compact series-col u-side-thumb">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
+				<div class="o-entry_post--compact series-col">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
+				<div class="o-entry_post--compact series-col">
 					<div class="c-entry_post-thumb test_box-custom-primary"></div>
 					<div class="o-entry_post-info test_box-custom-secondary"></div>
 				</div>
 			</div>
 		</div>
-
-		<!-- <div class="category-head">
-			<div class="o-div_cta">
-				<div class="c-div_cta-head">
-					<div class="test_box"></div>
-				</div>
-				<div class="u-center series-row">
-					<div class="test_box c-div_cta-divider"></div>
-					<div class="test_box c-div_cta-cta"></div>
-				</div>
-			</div>
-		</div>
-		<div class="series-row u--trim-padding-by_col-2 u-padding-1 u-wrap u-start_left">
-			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
-					<div class="c-entry_post-thumb test_box-custom-primary"></div>
-					<div class="o-entry_post-info test_box-custom-secondary"></div>
-				</div>
-			</div>
-			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
-					<div class="c-entry_post-thumb test_box-custom-primary"></div>
-					<div class="o-entry_post-info test_box-custom-secondary"></div>
-				</div>
-			</div>
-			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
-					<div class="c-entry_post-thumb test_box-custom-primary"></div>
-					<div class="o-entry_post-info test_box-custom-secondary"></div>
-				</div>
-			</div>
-			<div class="o--equalized">
-				<div class="o-entry_post--compact series-row">
-					<div class="c-entry_post-thumb test_box-custom-primary"></div>
-					<div class="o-entry_post-info test_box-custom-secondary"></div>
-				</div>
-			</div>
-		</div> -->
 
 	</div>
 </section>
 
-<section id="cntr-editors_pick" class="series-col u-constraint--main"> <!-- TODO:40 Structurize editor elements -->
-	<div class="o-div_cta -head--inline -head--styled"> <!-- TODO:0 Align properly -->
+<section id="cntr-editors_pick" class="series-col u-constraint--main">
+	<div class="o-div_cta -head--inline -head--styled">
 		<div class="series-col c-div_cta-head">
 			<div class="u-h1">
 				<div class="test_box-custom-secondary"></div>
@@ -168,7 +125,7 @@
 	</div>
 </section>
 
-<section id="cntr-upcoming" class="series-col u-center"> <!-- TODO:80 Structurize upcoming elements -->
+<section id="cntr-upcoming" class="series-col u-center">
 	<div class="series-col u-center o-section-head--center u-section-head--center u-constraint--main">
 		<div class="series-col u-center u-parent-width">
 			<div class="test_box-custom-primary c-section-head-sub --rectangle-s"></div>
@@ -213,21 +170,6 @@
 		</div>
 
 		<div class="test_box-custom-primary c-timeline-node--line"></div>
-
-		<!-- <div class="series-row u-parent-width o-row--timeline u-timeline-entry--right">
-			<div class="u-parent-width series-row u-timeline-entry-head--right">
-				<div class="c-entry-tag">
-					<div class="relative-cntr series-row --equalize-margin">
-						<div class="test_box-custom-main c-tag --rectangle-s"></div>
-						<div class="test_box-custom-secondary c-tag --rectangle-s"></div>
-					</div>
-				</div>
-				<div class="test_box-custom-primary v-timeline-entry-head"></div>
-			</div>
-			<div class="test_box-custom-secondary u-divider--inner c-timeline--ts_date"></div>
-			<div class="test_box-custom-inv u-parent-width"></div>
-		</div>
-		<div class="test_box-custom-primary c-timeline-node--line"></div> -->
 
 		<div class="series-col u-center o-upcoming-feat">
 			<div class="test_box-custom-secondary c-timeline--ts_date"></div>
