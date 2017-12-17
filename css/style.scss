@@ -6,6 +6,11 @@
 $bp-1: rgb(232, 74, 87);
 $bp-2: rgb(58, 157, 221);
 $bp: rgb(168, 133, 212);
+$entry-compact: 730px;
+$entry-timeline: 820px;
+$thumb-l-maxresp: 380px;
+$thumb-m-maxresp: 270px;
+$head-m-maxresp: 304px;
 
 @function bp($select: 1, $level: 0){
   $color: rgb(232, 74, 87);
@@ -23,11 +28,25 @@ $bp: rgb(168, 133, 212);
   @return ($level*10)/$hue-thresh;
 }
 
+@function em($size){
+  @return $size + 0em;
+}
+
 @function rem($size){
   @return $size + 0rem;
 }
 
 @mixin quadrilateral($height: 0, $scale: 1, $width: 0) {
+  @if $width == 0{
+    height: em($height);
+    width: em($height * $scale);
+  } @else if $height == 0 {
+    width: em($width);
+    height: em($width * $scale);
+  }
+}
+
+@mixin quadrilateralRem($height: 0, $scale: 1, $width: 0) {
   @if $width == 0{
     height: rem($height);
     width: rem($height * $scale);
@@ -48,6 +67,17 @@ $bp: rgb(168, 133, 212);
   left: 4px;
 }
 
+@mixin entry_compact {
+  @media (max-width: #{$entry-compact}) {
+    @content;
+  }
+}
+
+@mixin entry_timeline {
+  @media (max-width: #{$entry_timeline}) {
+    @content;
+  }
+}
 
 ////  < DEBUGGING >
 
@@ -72,62 +102,64 @@ $bp: rgb(168, 133, 212);
 
 .test_box-custom-main{
   @include test_box-bordered(1);
-  border: none !important;
+  outline: none !important;
 }
 
 section{
-    margin-bottom: 6rem;
+    margin-bottom: 6em;
     color: #7c7c7c;
     position: relative;
+    display: block;
+    overflow-x: hidden;
     &::before{
       @include class_name-pos;
     }
 }
 
 #cntr-nav{
-  padding: 1rem;
+  padding: 1em;
   &::before{
     content: 'nav';
   }
 }
 
 #cntr-hero{
-  // padding: 2rem;
+  // padding: 2em;
   &::before{
     content: 'hero';
   }
 }
 
 #cntr-category{
-  padding: 1rem;
+  padding: 1em;
   &::before{
     content: 'cateogry';
   }
 }
 
 #cntr-editors_pick{
-   padding: 1rem;
+   padding: 1em;
    &::before{
     content: "editor's pick";
   }
 }
 
 #cntr-upcoming{
-  // padding: 2rem;
+  // padding: 2em;
     &::before{
      content: "upcoming";
    }
 }
 
 #cntr-timeline{
-   padding: 2rem;
+   padding: 2em;
      &::before{
       content: "timeline";
     }
  }
 
 #nav-head{
-  padding: 2rem;
+  padding: 2em;
   position: relative;
     &::before{
      content: "nav menu";
@@ -154,10 +186,6 @@ section{
   @include quadrilateral(2,4);
 }
 
-.--custom-cat{
-  @include quadrilateral(6, 1.5);
-}
-
 .c-div_cta-divider{
   height: 3px;
 }
@@ -171,7 +199,7 @@ section{
   flex-direction: row;
   height: auto;
   // position: relative;
-  border: 1px solid $bp;
+  outline: 1px solid $bp;
   &.--equalize-border{
     :not(:last-child){
         border-right: none;
@@ -185,20 +213,20 @@ section{
     }
   }
   &.--equalize-height{
-    border: 1px solid red;
+    outline: 1px solid red;
   }
   &.u-start_right{
-    flex-direction: row-reverse;
+    justify-content: flex-end;
   }
   &.u-start_left{
     justify-content: flex-start;
   }
 }
 
-.series-col{ // TODO:30 Use JS to get inner child and remove borders
+.series-col{ // TODO:30 Use JS to get inner child and emove borders
   display: flex;
   flex-direction: column;
-  border: 1px solid $bp;
+  outline: 1px solid $bp;
   // position: relative;
   &.--equalize-border{
     & > {
@@ -218,26 +246,71 @@ section{
     align-items: flex-end;
   }
   &.u-start_left{
-    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
+
+.rpsv-timeline{
+  display: flex;
+}
+
+@include  entry_timeline{
+  .rpsv-timeline{
+    &.u-timeline-entry--right,&.u-timeline-entry--left{
+        flex-direction: column;
+    }
+    .u-start_right, .u-start_left{
+        align-items: center;
+        justify-content: center;
+    }
+    .u-timeline--main-head{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .c-entry-tag{
+      left: 50% !important;
+      transform: translateX(-50%);
+    }
+  }
+};
 
 // .u--equalize-padding-by_col-2{ //Use instead flexbox's space evenly
 //   & > {
 //     & div:nth-child(2n-1){
-//       padding-right: calc(1rem/2);
+//       padding-right: calc(1em/2);
 //     }
 //     & div:nth-child(2n){
-//       padding-left: calc(1rem/2);
+//       padding-left: calc(1em/2);
 //     }
 //   }
 // }
 
 //  </ DRAFT >
 
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
 body{
   font-family: 'Raleway', sans-serif;
-  text-align: center;
+  font-size: 100%;
+  position: relative;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 //// MAIN
@@ -247,7 +320,7 @@ body{
 //   flex-flow: row nowrap;
 //   width: 100%;
 //   height: auto;
-//   border: 1px solid $bp;
+//   outline: 1px solid $bp;
 //   &.u-nowrap{
 //     flex-flow: row wrap;
 //   }
@@ -259,20 +332,21 @@ body{
 // .u-col{
 //   @include center;
 //   flex-direction: column;
-//   border: 1px solid $bp;
+//   outline: 1px solid $bp;
 // }
 
 //// Utilities
 
 .u-single{
   @include center;
-  border: 1px solid $bp;
+  outline: 1px solid $bp;
 }
 
 .u-constraint--main{
   max-width: 1000px;
   width: 100%;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }
 
 .u-center{
@@ -293,13 +367,13 @@ body{
 
 .u-padding-1{
   & > .o--equalized{
-    padding: .5rem;
+    padding: .5em;
   }
 }
 
 .u-padding-5{
   & > .o--equalized{
-    padding: 2.5rem;
+    padding: 2.5em;
   }
 }
 
@@ -331,8 +405,28 @@ body{
   }
 }
 
+.u--trim-border-by_col-4{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+      padding-bottom: 0;
+    }
+  }
+}
+
 .u-h1{
-  font-size: 2rem;
+  font-size: 2em;
    white-space: nowrap;
    position: relative;
    margin-bottom: .9rem;
@@ -346,17 +440,18 @@ body{
     left: 0;
   }
   & > .test_box-custom-secondary{
-    @include quadrilateral(3,3);
+    @include quadrilateral(1.5,3);
   }
 }
 
 .u-section-head--center{
-  height: 12rem;
+  height: 4em;
+  font-size: 2.5em;
   justify-content: flex-end;
 }
 
 .u-divider--inner{
-  // width: 7rem;
+  // width: 7em;
   flex-shrink: 0;
 }
 
@@ -372,21 +467,21 @@ body{
   align-items: flex-start;
   justify-content: flex-end;
   position: relative;
+  margin-right: 1.75em;
   & .c-entry-tag{
     position: absolute;
-    top: -2.1rem;
-    right: 1.75rem;
+    top: -2.1em;
+    right: 1.75em;
     & .relative-cntr{
       flex-direction: row-reverse;
     }
   }
   .c-tag{
-    margin-left: 1rem;
+    margin-left: 1em;
     margin-right: 0;
   }
   .v-timeline-entry-desc{
-    align-self: self-end;
-    margin-right: 1.75rem;
+    margin-right: 1.75em;
   }
 }
 
@@ -394,34 +489,39 @@ body{
   align-items: flex-start;
   justify-content: flex-start;
   position: relative;
+  margin-left: 1.75em;
   & .c-entry-tag{
     position: absolute;
-    top: -2.1rem;
-    left: 1.75rem;
+    top: -2.1em;
+    left: 1.75em;
   }
   .v-timeline-entry-desc{
-    margin-left: 1.75rem;
+    margin-left: 1.75em;
   }
 }
 
 .u-timeline-entry-head{
   position: relative;
+  width: 100%;
 }
 
 .u-timeline--main-head{
-  margin-top: 4.75rem;
-  margin-left: 2rem;
+  margin-top: 4.75em;
 }
 
 .u-timeline--ts_thumb{
-  @include quadrilateral(24, 1.4);
-  // width: 100%;
+  // @include quadrilateral(24, 1.4);
+  width: 100%;
   // height: 100%;
-  max-width: calc(24rem*1.4rem);
-  max-height: 24rem;
+  max-width: calc(24em*1.4);
+  height: 24em;
   flex-shrink: 0;
-  // margin: 2.5rem;
+  // margin: 2.5em;
   // box-shadow: 1px 3px 34px -3px rgba(0,0,0,0.65)
+}
+
+.u-col-flush_bottom{
+  margin-top: auto;
 }
 
 //// Objects
@@ -439,24 +539,31 @@ body{
 }
 
 .o-entry_post--compact{
-  // height: 20rem;
+  // height: 20em;
   height: 100%;
   width: 100%;
-  border: 1px solid $bp;
+  outline: 1px solid $bp;
 }
 
-
+.o-custom-cat{
+  @include quadrilateral(6, 1.5);
+  outline: 4px solid $bp-1;
+}
 
 .o-entry_post-info{
   width: 100%;
   height: 100%;
+  padding: 1rem;
 }
 
 .o--equalized{
   @include center;
   width: calc(100%/2);
-  height: 24rem;
-  border: 1px solid $bp;
+  height: 24em;
+  outline: 1px solid $bp;
+  @include entry_compact{
+    width: 100%;
+  }
 }
 
 //// Components
@@ -473,7 +580,7 @@ body{
 .c-div_cta-head--styled{
   width: auto;
   height: 2px;
-  margin-bottom: calc((1rem))
+  margin-bottom: calc((1em))
 }
 
 .c-div_cta-divider{
@@ -482,16 +589,16 @@ body{
 
 .c-div_cta-cta{
   @include quadrilateral(2.25,3);
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 
 .category-head{
-  margin-top: 3rem;
+  margin-top: 3em;
   width: 100%;
 }
 
 .category-row--entry_post{
-  margin-top: 1.25rem;
+  margin-top: 1.25em;
 }
 
 .c-entry_post-thumb{
@@ -510,7 +617,7 @@ body{
 }
 
 .c-natural_form-under{
-  width: 7rem;
+  width: 2.5em;
 }
 
 .c-entry-tag{
@@ -523,7 +630,7 @@ body{
 }
 
 .c-tag{
-  margin-right: 1rem;
+  margin-right: 1em;
   flex-shrink: 0;
 }
 
@@ -535,6 +642,46 @@ body{
   width: 100%;
 }
 
+.c-custom-cat-title{
+  @include quadrilateral(2,3);
+}
+
+.c-section-head-sub{
+  height: .9em;
+  width: 2.25em;
+}
+.c-section-head-header{
+  height: 1em;
+  width: 3em;
+}
+
+.c-entry_post-head{
+  padding-bottom: 1rem;
+}
+
+.c-entry_post-head-title{
+  // @include quadrilateralRem(3, 6);
+  height: 3rem;
+  max-width: calc(3rem*6);
+  width: 100%;
+}
+
+.c-entry_post-desc{
+  // @include quadrilateralRem(7, 2.25);
+  max-height: 5rem;
+  height: 100%;
+  max-width: calc(5rem*2.25);
+  width: 100%;
+}
+
+.c-entry_post-footer{
+  align-self: self-end;
+}
+
+.c-entry_post-datepub{
+  @include quadrilateral(1.5, 6);
+}
+
 //// Visuals
 
 .v-timeline-entry-head{
@@ -542,6 +689,9 @@ body{
 }
 .v-timeline-entry-desc{
   @include quadrilateral(7, 3);
+  height: 7em;
+  max-width: calc(7em * 3);
+  width: 100%;
 }
 
 //// Specifics
@@ -552,12 +702,12 @@ body{
 
 #hero-thumb{
   width: 100%;
-  height: 35rem;
+  height: 35em;
 }
 
 #nav-head{
   @include center;
-  border: 1px solid $bp;
+  outline: 1px solid $bp;
 }
 
 .editors_pick-entry-post{
@@ -566,7 +716,7 @@ body{
 }
 
 #cntr-upcoming-entry{
-  padding: 8rem 2rem;
+  padding: 8em 2em;
 }
 
 .relative-cntr{
@@ -577,6 +727,7 @@ body{
 }
 
 .pusher{
-  width: 5rem;
-  flex-shrink: 0;
+  max-width: 5em;
+  width: 100%;
+  background: red;
 }
