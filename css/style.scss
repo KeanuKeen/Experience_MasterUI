@@ -70,7 +70,16 @@
       align-self: flex-start;
     }
   }
+  #cntr-editors_pick .o--equalized{
+    width: 100%;
+  }
 };
+
+@include entry_compact{
+  #cntr-category .o--equalized{
+    width: 100%;
+  }
+}
 
 .series-row { 
   display: flex;
