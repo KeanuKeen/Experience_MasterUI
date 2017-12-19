@@ -118,14 +118,13 @@
     flex-shrink: 0;
   }
   
-  .u-timeline-entry--right{
-    flex-direction: row-reverse !important;
-  }
-  
   .u-noshrink{
     flex-shrink: 0;
   }
   
+  .u-timeline-entry--right{
+  }
+
   .u-timeline-entry-head--left{
     align-items: flex-start;
     justify-content: flex-end;
@@ -139,8 +138,8 @@
       }
     }
     .c-tag{
-      margin-left: 1em;
       margin-right: 0;
+      margin-left: 1rem;
     }
     .v-timeline-entry-desc{
       margin-right: 1.75em;
@@ -158,6 +157,9 @@
     }
     .v-timeline-entry-desc{
       margin-left: 1.75em;
+    }
+    .rpsv-direction{
+      flex-direction: row-reverse;
     }
   }
   

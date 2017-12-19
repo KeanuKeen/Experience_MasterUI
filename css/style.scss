@@ -1,14 +1,78 @@
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
 @import 'partials/variables';
 @import 'partials/debug';
 @import 'partials/master';
 @import 'partials/objects';
 @import 'partials/utilities';
 @import 'partials/components';
-@import 'partials/visuals';
+@import 'partials/visuals'; //test @author
 
+@include entry_compact{
 
+}
 
-.series-row {
+@include entry_timeline{
+  .rpsv-timeline{
+    max-width: 100%;
+    &.u-timeline-entry--right,&.u-timeline-entry--left{
+      flex-direction: column;
+    }
+    .u-start_right, .u-start_left{
+      align-items: flex-start !important;
+      justify-content: center !important;
+    }
+    .u-timeline--main-head{
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .c-entry-tag{
+      left: 2.75rem;
+    }
+    .v-timeline-entry-desc{
+      margin-right: 0;
+      margin-left: 0;
+    }
+    .u-timeline--ts_thumb{
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .rpsv-direction{
+    flex-direction: column;
+  }
+  .rpsv-desc {
+    display: flex !important;
+  }
+  .u-timeline--main-head{
+    .v-timeline-entry-desc{
+      display: none;
+    }
+  }
+  #cntr-timeline{
+    max-width: 34rem;
+    width: 100%;
+    .c-timeline-node--line{
+      align-self: flex-start;
+    }
+  }
+};
+
+.series-row { 
   display: flex;
   flex-direction: row;
   height: auto;
@@ -29,6 +93,9 @@
   }
   &.u-start_left{
     justify-content: flex-start;
+  }
+  &.u-timeline-entry--right{
+    flex-direction: row-reverse;
   }
 }
 
@@ -87,43 +154,18 @@
   display: flex;
 }
 
-@include entry_timeline{
-  .rpsv-timeline{
-    &.u-timeline-entry--right,&.u-timeline-entry--left{
-        flex-direction: column;
-    }
-    .u-start_right, .u-start_left{
-        align-items: center;
-        justify-content: center;
-    }
-    .u-timeline--main-head{
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .c-entry-tag{
-      left: 50% !important;
-      transform: translateX(-50%);
-    }
-  }
-};
+.rpsv-desc {
+  display: none;
+}
+
+.u-timeline-entry--right{
+  flex-direction: row-reverse;
+}
+
 
 //  </ DRAFT >
 
-@mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) { @content; }
-}
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
-}
+
 
 body{
   font-family: 'Raleway', sans-serif;
@@ -136,16 +178,6 @@ body{
 *{
   box-sizing: border-box;
 }
-
-//// MAIN
-
-//// Utilities
-
-//// Objects
-
-//// Components
-
-//// Visuals
 
 #nav-menu{
   margin-bottom: calc(-21px + 8px);
@@ -239,5 +271,9 @@ body{
   font-size: 14px;
   white-space: nowrap;
   @include center;
+}
+
+#cntr-timeline{
+  margin: 0 auto;
 }
 //// Specifics

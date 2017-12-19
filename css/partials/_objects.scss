@@ -31,8 +31,7 @@
   .o--equalized{
     @include center;
     width: calc(100%/2);
-    height: 24em;
-    // outline: 1px solid $bp;
+    height: 20rem;
     @include entry_compact{
       width: 100%;
     }
