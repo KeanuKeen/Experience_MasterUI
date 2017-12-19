@@ -1,0 +1,22 @@
+.v-timeline-entry-head{
+    @include quadrilateral(4, 2.5);
+}
+.v-timeline-entry-desc{
+  @include quadrilateral(7, 3);
+  height: 7em;
+  max-width: calc(7em * 3);
+  width: 100%;
+}
+
+.v-head{
+  color: #212121;
+  // margin-bottom: .125em;
+}
+
+.v-head-sub{
+  color: #b8b8b8;
+}
+
+.v-thumb-prev{
+  background: #3B3B3B;
+}

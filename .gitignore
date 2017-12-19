@@ -7,6 +7,8 @@ css/style.min.css
 css/style.min.css
 >>>>>>> fef5fdb490519b4cf0f89ce7a99d871d1b01c6bc
 .vscode/settings.json
-css/style.min.css.map
-css/style.min.css
 css/style.css.map
+gulpfile.js
+node_modules/
+*.json
+css/style.min.css
