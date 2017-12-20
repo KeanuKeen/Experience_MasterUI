@@ -1,9 +1,9 @@
 .v-timeline-entry-head{
-    @include quadrilateral(4, 2.5);
+    font-size: 1.75rem;
+    font-weight: 100;
+    margin-left: .75rem;
 }
 .v-timeline-entry-desc{
-  @include quadrilateral(7, 3);
-  height: 7em;
   max-width: calc(7em * 3);
   width: 100%;
 }

@@ -65,6 +65,12 @@
     }
   }
 
+  @mixin variable_el {
+    @media (max-width: #{$variable_el}) {
+      @content;
+    }
+  }
+
   ////  < DEBUGGING >
   
   .test_box{
@@ -100,7 +106,7 @@
       color: #7c7c7c;
       position: relative;
       // display: block;
-      overflow-x: hidden;
+      // overflow-x: hidden;
       &::before{
         @include class_name-pos;
       }

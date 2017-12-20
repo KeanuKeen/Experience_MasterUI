@@ -121,9 +121,6 @@
   .u-noshrink{
     flex-shrink: 0;
   }
-  
-  .u-timeline-entry--right{
-  }
 
   .u-timeline-entry-head--left{
     align-items: flex-start;
@@ -131,8 +128,8 @@
     position: relative;
     & .c-entry-tag{
       position: absolute;
-      top: -2.1em;
-      right: 1.75em;
+      top: -2.25em;
+      right: 1.25em;
       & .relative-cntr{
         flex-direction: row-reverse;
       }
@@ -144,6 +141,9 @@
     .v-timeline-entry-desc{
       margin-right: 1.75em;
     }
+    .v-timeline-entry-head{
+      margin-right: .75rem;
+    }
   }
   
   .u-timeline-entry-head--right{
@@ -152,8 +152,8 @@
     position: relative;
     & .c-entry-tag{
       position: absolute;
-      top: -2.1em;
-      left: 1.75em;
+      top: -2.25em;
+      left: .75em;
     }
     .v-timeline-entry-desc{
       margin-left: 1.75em;
@@ -161,15 +161,30 @@
     .rpsv-direction{
       flex-direction: row-reverse;
     }
+    .c-tag{
+      &:first-child{
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      &:not(:first-child){
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+    }
+    & .relative-cntr{
+      margin-left: .75rem;
+    }
   }
-  
-  .u-timeline-entry-head{
+
+  .u-timeline-entry-head-text{
     position: relative;
     width: 100%;
   }
   
   .u-timeline--main-head{
     margin-top: 4.75em;
+    margin-bottom: 1rem;  
   }
   
   .u-timeline--ts_thumb{
@@ -179,6 +194,8 @@
     max-width: calc(24em*1.4);
     height: 24em;
     flex-shrink: 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 62px -7px rgba(0,0,0,.45);
     // margin: 2.5em;
     // box-shadow: 1px 3px 34px -3px rgba(0,0,0,0.65)
   }

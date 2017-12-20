@@ -51,8 +51,9 @@
   }
   
   .c-entry-tag{
-    height: 2rem;
+    height: 2em;
     width: auto;
+    font-size: .429em;
   }
   
   .c-timeline-node--line{
@@ -60,8 +61,12 @@
   }
   
   .c-tag{
-    margin-right: 1rem;
+    margin-right: .333em;
     flex-shrink: 0;
+    border: 1px solid $tag-border;
+    border-radius: 5px;
+    padding: .333em .833em;
+    color: $tag-text;
   }
   
   .c-upcoming-feat-thumb{
@@ -70,6 +75,8 @@
   
   .c-timeline--ts_thumb{
     width: 100%;
+    height: 100% !important;
+    max-height: 28rem;
   }
   
   .c-custom-cat-title{
