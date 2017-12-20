@@ -31,9 +31,6 @@
   .o--equalized{
     @include center;
     width: calc(100%/2);
-    height: 20rem;
-    @include entry_compact{
-      width: 100%;
-    }
+    height: auto;
   }
   
