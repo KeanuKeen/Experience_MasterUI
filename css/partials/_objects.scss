@@ -33,4 +33,19 @@
     width: calc(100%/2);
     height: auto;
   }
+
+  .o-section-head--center{
+    .u-divider--outer{
+      height: 1px;
+      width: 100%;
+      background: #333;
+    }
+    .u-divider--inner{
+      height: 1px;
+      width: 1.9em;
+      background: #3F6951;
+      flex-shrink: 0;
+      margin: 0 .111em;
+    }
+  }
   

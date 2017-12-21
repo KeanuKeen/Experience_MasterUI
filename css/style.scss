@@ -297,10 +297,14 @@ body{
   padding: 8em 2em;
 }
 
+#cntr-upcoming{
+  background: #242424;  
+}
+
 #cntr-editors_pick-entry{
   .timeline-compact{
     flex-direction: column;
-    height: 38rem;
+    height: 40rem;
   }
 }
 
