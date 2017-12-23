@@ -71,6 +71,12 @@
     }
   }
 
+  @mixin category_table-tab {
+    @media (max-width: #{$category-tab}) {
+      @content;
+    }
+  }
+
   ////  < DEBUGGING >
   
   .test_box{
@@ -106,7 +112,7 @@
       color: #7c7c7c;
       position: relative;
       // display: block;
-      // overflow-x: hidden;
+      overflow-x: hidden;
       &::before{
         @include class_name-pos;
       }

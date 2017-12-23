@@ -18,7 +18,9 @@
   }
   
   .o-custom-cat{
-    @include quadrilateral(6.5, 1.75);
+    height: 6.5rem;
+    max-width: 11rem;
+    width: 100%;
     border: 2px solid #e3e3e3;
   }
   
@@ -43,7 +45,6 @@
     .u-divider--inner{
       height: 1px;
       width: 1.9em;
-      background: #3F6951;
       flex-shrink: 0;
       margin: 0 .111em;
     }

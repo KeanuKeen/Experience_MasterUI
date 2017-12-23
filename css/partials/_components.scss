@@ -42,12 +42,27 @@
   }
   
   .c-timeline--ts_date{
-    @include quadrilateral(5,1);
+    @include quadrilateralRem(4,1);
     flex-shrink: 0;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 2.3rem;
+    font-weight: 700;
+    overflow: hidden;
+    color:white;
+    & span{
+      margin-bottom: -.3em;
+      margin-right: -.125em;
+    }
   }
+
+.c-upcoming-feat-desc{
+  margin-bottom: 1.75rem;
+}
   
   .c-natural_form-under{
     width: 2.5em;
+    background: #3F6951 !important;
   }
   
   .c-entry-tag{
@@ -56,21 +71,19 @@
     font-size: .429em;
   }
   
-  .c-timeline-node--line{
-    @include quadrilateral(0, 6, 1);
-  }
-  
   .c-tag{
     margin-right: .333em;
     flex-shrink: 0;
-    border: 1px solid $tag-border;
     border-radius: 5px;
+    border: 1px solid $tag-border;
     padding: .333em .833em;
     color: $tag-text;
   }
   
   .c-upcoming-feat-thumb{
-    @include quadrilateral(22, 1.5);
+    height: 22rem;
+    max-width: calc(22rem*1.5);
+    width: 100%;
   }
   
   .c-timeline--ts_thumb{
@@ -80,8 +93,9 @@
   }
   
   .c-custom-cat-title{
-    @include quadrilateral(2,3.5);
     @include center;
+    width: auto;
+    border: 1px solid $bp;
     text-align: center;
     font-size: 16px;
     font-weight: 600;
@@ -163,6 +177,10 @@
     align-items: center;
   }
 
+  .c-timeline--ts_date{
+    border-radius: 5px;
+  }
+
   .c-timeline_cta-divider{
     width: 1.75rem;
     height: 3px;
@@ -173,3 +191,21 @@
     font-size: 14px;
     font-weight: 600;
   }
+
+.c-timeline-node--line{
+  margin: 1rem 0;
+  width: 1px;
+  .u-divider--outer{
+    width: 1px;
+    height: calc(5% + 5px);
+    flex-shrink: 0;
+    background: #E1E1E1;
+  }
+  .u-divider--inner{
+    width: 1px;
+    height: 100%;
+    margin: 2px 0;
+    background: #C0C0C0;
+  }
+}
+  

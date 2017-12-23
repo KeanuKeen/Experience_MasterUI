@@ -41,7 +41,7 @@
       margin-right: 0;
     }
     .c-entry-tag{
-      left: 2.75rem;
+      left: .75rem;
     }
     .relative-cntr{
       flex-direction: row !important;
@@ -59,6 +59,7 @@
     display: flex !important;
   }
   .u-timeline--main-head{
+    justify-content: flex-start;
     .v-timeline-entry-desc{
       display: none;
     }
@@ -228,6 +229,17 @@
   }
 }
 
+.--equalize-margin-both{
+  & > div{
+    &:first-child{
+      margin-left: 0;
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
+
 .rpsv-timeline{
   display: flex;
 }
@@ -294,11 +306,7 @@ body{
 }
 
 #cntr-upcoming-entry{
-  padding: 8em 2em;
-}
-
-#cntr-upcoming{
-  background: #242424;  
+  padding: 8em 1em;
 }
 
 #cntr-editors_pick-entry{
@@ -380,5 +388,12 @@ body{
 
 #cntr-timeline{
   margin: 0 auto;
+  padding-top: 8rem;
+}
+
+.table--category{
+  flex-wrap: nowrap;
+  max-width: 100%;
+  width: 100%;
 }
 //// Specifics
